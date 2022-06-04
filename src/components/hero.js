@@ -34,6 +34,7 @@ export default function Hero(props) {
             <GatsbyImage
             alt={props.image.alt}
             image={getImage(props.image.gatsbyImageData)}
+            style={{transform: "scale(0.98)"}}
           />
               </>
             )}
