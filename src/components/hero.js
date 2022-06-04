@@ -16,6 +16,8 @@ import {
 import animationdata from "./Hero.json";
 
 export default function Hero(props) {
+  const [play, setPlay] = React.useState(false)
+
   return (
     <Section>
       <Container>
@@ -24,6 +26,9 @@ export default function Hero(props) {
             {props.image && (
               <>
               <Player
+              onEvent={event => {
+                if (event === 'play') setPlay(true); // check event type and do something
+              }}
               autoplay
               loop
               src={animationdata}
@@ -34,7 +39,7 @@ export default function Hero(props) {
             <GatsbyImage
             alt={props.image.alt}
             image={getImage(props.image.gatsbyImageData)}
-            style={{transform: "scale(0.98)"}}
+            style={{transform: "scale(0.98)", transition: "opacity 2s ease-in-out", opacity: play===true ? 1 : 0}}
           />
               </>
             )}
