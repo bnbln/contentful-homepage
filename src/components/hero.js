@@ -13,7 +13,7 @@ import {
   Subhead,
   Text,
 } from "./ui"
-import animationData from "./Hero.json";
+import animationdata from "./Hero.json";
 
 export default function Hero(props) {
   return (
@@ -22,18 +22,20 @@ export default function Hero(props) {
         <Flex gap={4} variant="responsive">
           <Box width="half" style={{position: "relative", zIndex: 0}}>
             {props.image && (
+              <>
               <Player
               autoplay
               loop
-              src={animationData}
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 20 }}
+              src={animationdata}
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 20, outline: "10px solid #ffd500" }}
             >
               <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
-              <GatsbyImage
-                alt={props.image.alt}
-                image={getImage(props.image.gatsbyImageData)}
-              />
             </Player>
+            <GatsbyImage
+            alt={props.image.alt}
+            image={getImage(props.image.gatsbyImageData)}
+          />
+              </>
             )}
           </Box>
           <Box width="half">
